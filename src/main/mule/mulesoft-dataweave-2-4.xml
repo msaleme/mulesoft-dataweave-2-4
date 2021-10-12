@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="mulesoft-dataweave-2-4Flow" doc:id="9297b917-cfaf-4e07-9efd-736108f11b78" >
+		<ee:transform doc:name="Transform Message" doc:id="8ca69969-016d-4f5b-917a-da4ddd14db7e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+import * from dw::util::Math
+import dw::Core
+import words from dw::core::Strings
+
+output application/json
+---
+
+
+{
+  "sin0": sin(0),
+  "sin13": sin(0.13),
+  "sin-1": sin(-1),
+ "words": words("hello world\nhere\t\t\tdata-weave")
+ 
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
